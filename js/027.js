@@ -20,9 +20,9 @@ let merge = function (l, r){
             B[cnt++] = A[c2++];
         }else if(c2 === r){
             //②の要素がない
-            B = B.concat(A.slice(c1, pivot));
-            //ループを終わらせる
-            c1 = pivot;
+            for(;c1<pivot;c1++){
+                B[cnt++]=A[c1];
+            }
         }else{
             if(A[c1] <= A[c2]){
                 B[cnt++] = A[c1++];
@@ -43,8 +43,15 @@ function Main(input){
 
     //マージソート
     merge(0, A.length);
-    console.log(B);
+
+    for(let i=0;i<B.length;i++){
+        if(i<B.length-1){
+            process.stdout.write(B[i]+' ');
+        }else{
+            process.stdout.write(B[i]+'\n');
+        }
+    }
 }
 
 Main(fs.readFileSync('../txt/027.txt', 'utf8'));
-//Main(fs.readFileSync('/dev/stdout', 'utf8'));
+//Main(fs.readFileSync('/dev/stdin', 'utf8'));
