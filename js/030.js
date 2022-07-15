@@ -13,6 +13,7 @@ let Main = function (input){
         }
     });
 
+    
     console.log(Math.max(...value[value.length-1]));
 }
 
